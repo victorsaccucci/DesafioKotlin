@@ -15,15 +15,34 @@ class DigitalHouseManager {
         }
     }
 
-    fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigo: Int, horasDeMonitoria: Int)
+    fun registrarProfessorAdjunto(
+        nome: String,
+        sobrenome: String,
+        codigo: Int,
+        horasDeMonitoria: Int){
 
-    fun registrarProfessorTitular(nome: String, sobrenome: String, codigo: Int, especialidade: String)
+        val professor = ProfessorAdjunto(nome, sobrenome, codigo, horasDeMonitoria)
+        listaDeProfessores.add(professor)
+
+    }
+
+    fun registrarProfessorTitular(nome: String,
+                                  sobrenome: String,
+                                  codigo: Int,
+                                  especialidade: String){
+
+    }
 
     fun excluirProfessor(codigo: Integer)
 
-    fun registrarAluno(nome: String, sobrenome: String, codigoAluno: Int)
+    fun registrarAluno(nome: String,
+                       sobrenome: String,
+                       codigoAluno: Int)
 
-    fun matricularAluno(codigoAluno: Int, codigoDoCurso: Int)
+    fun matricularAluno(codigoAluno: Int,
+                        codigoDoCurso: Int)
 
-    fun alocarProfessores(codigoDoCurso: Int, codigoProfessorTitular: Int, codigoProfessorAdjunto: Int)
+    fun alocarProfessores(codigoDoCurso: Int,
+                          codigoProfessorTitular: Int,
+                          codigoProfessorAdjunto: Int)
 }
