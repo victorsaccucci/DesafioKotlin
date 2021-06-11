@@ -10,6 +10,9 @@ class DigitalHouseManager {
     }
 
     fun excluirCurso(codigoDoCurso: Int){
+        listaDeCursos.removeAll {
+            it.codigoDoCurso == codigoDoCurso
+        }
     }
 
     fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigo: Int, horasDeMonitoria: Int)
