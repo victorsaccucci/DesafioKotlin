@@ -1,3 +1,5 @@
+import java.lang.NullPointerException
+
 class DigitalHouseManager {
     var listaDeAlunos: MutableList<Aluno> = mutableListOf()
     var listaDeProfessores: MutableList<Professor> = mutableListOf()
@@ -56,11 +58,32 @@ class DigitalHouseManager {
     fun matricularAluno(
         codigoAluno: Int,
         codigoDoCurso: Int
-    )
+    ) {
+        val aluno = listaDeAlunos.find {
+            it.codigoDoAluno == codigoAluno
+        }
+        val curso = listaDeCursos.find {
+            it.codigoDoCurso == codigoDoCurso
+        }
+        if (aluno == null || curso == null)
+            throw NullPointerException("não foi possível encontrar aluno ou curso.")
+
+        if (curso.adicionarAluno(aluno)) {
+            val matricula = Matricula(aluno, curso)
+            listaDeMatriculas.add(matricula)
+            println("Aluno matriculado.")
+        } else {
+            println("Sem vaga para o curso.")
+        }
+        val matricula = Matricula(aluno, curso)
+        listaDeMatriculas.add(matricula)
+    }
 
     fun alocarProfessores(
         codigoDoCurso: Int,
         codigoProfessorTitular: Int,
         codigoProfessorAdjunto: Int
-    )
+    ){
+        
+    }
 }
