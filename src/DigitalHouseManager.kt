@@ -4,12 +4,12 @@ class DigitalHouseManager {
     var listaDeCursos: MutableList<Curso> = mutableListOf()
     var listaDeMatriculas: MutableList<Matricula> = mutableListOf()
 
-    fun registrarCurso(nome: String, codigoDoCurso: Int, qtdMaxima: Int ){
+    fun registrarCurso(nome: String, codigoDoCurso: Int, qtdMaxima: Int) {
         val curso = Curso(nome, codigoDoCurso, qtdMaxima)
         listaDeCursos.add(curso)
     }
 
-    fun excluirCurso(codigoDoCurso: Int){
+    fun excluirCurso(codigoDoCurso: Int) {
         listaDeCursos.removeAll {
             it.codigoDoCurso == codigoDoCurso
         }
@@ -19,30 +19,40 @@ class DigitalHouseManager {
         nome: String,
         sobrenome: String,
         codigo: Int,
-        horasDeMonitoria: Int){
+        horasDeMonitoria: Int
+    ) {
 
         val professor = ProfessorAdjunto(nome, sobrenome, codigo, horasDeMonitoria)
         listaDeProfessores.add(professor)
 
     }
 
-    fun registrarProfessorTitular(nome: String,
-                                  sobrenome: String,
-                                  codigo: Int,
-                                  especialidade: String){
-
+    fun registrarProfessorTitular(
+        nome: String,
+        sobrenome: String,
+        codigo: Int,
+        especialidade: String
+    ) {
+        val professor = ProfessorTitular(nome, sobrenome, codigo, especialidade)
+        listaDeProfessores.add(professor)
     }
 
     fun excluirProfessor(codigo: Integer)
 
-    fun registrarAluno(nome: String,
-                       sobrenome: String,
-                       codigoAluno: Int)
+    fun registrarAluno(
+        nome: String,
+        sobrenome: String,
+        codigoAluno: Int
+    )
 
-    fun matricularAluno(codigoAluno: Int,
-                        codigoDoCurso: Int)
+    fun matricularAluno(
+        codigoAluno: Int,
+        codigoDoCurso: Int
+    )
 
-    fun alocarProfessores(codigoDoCurso: Int,
-                          codigoProfessorTitular: Int,
-                          codigoProfessorAdjunto: Int)
+    fun alocarProfessores(
+        codigoDoCurso: Int,
+        codigoProfessorTitular: Int,
+        codigoProfessorAdjunto: Int
+    )
 }
