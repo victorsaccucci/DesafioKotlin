@@ -48,6 +48,8 @@ class DigitalHouseManager {
         sobrenome: String,
         codigoAluno: Int
     ) {
+        val aluno = Aluno(nome, sobrenome, codigoAluno)
+        listaDeAlunos.add(aluno)
 
     }
 
