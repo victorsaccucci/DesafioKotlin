@@ -37,13 +37,19 @@ class DigitalHouseManager {
         listaDeProfessores.add(professor)
     }
 
-    fun excluirProfessor(codigo: Integer)
+    fun excluirProfessor(codigo: Int) {
+        listaDeProfessores.removeAll {
+            it.codigoDoProfessor == codigo
+        }
+    }
 
     fun registrarAluno(
         nome: String,
         sobrenome: String,
         codigoAluno: Int
-    )
+    ) {
+
+    }
 
     fun matricularAluno(
         codigoAluno: Int,
