@@ -83,7 +83,27 @@ class DigitalHouseManager {
         codigoDoCurso: Int,
         codigoProfessorTitular: Int,
         codigoProfessorAdjunto: Int
-    ){
-        
+    ) {
+        val professorTitular = listaDeProfessores.find {
+            it.codigoDoProfessor == codigoProfessorTitular
+        }
+
+        val professorAdjunto = listaDeProfessores.find {
+            it.codigoDoProfessor == codigoProfessorAdjunto
+        }
+
+        if (professorAdjunto == null || professorTitular == null)
+            throw NullPointerException("Professor não encontrado")
+
+        val curso = listaDeCursos.find {
+            it.codigoDoCurso == codigoDoCurso
+        }
+
+        if (curso == null)
+            throw NullPointerException("Esse curso não existe")
+
+        curso.adicionaProfessor(professorTitular)
+        curso.adicionaProfessor(professorAdjunto)
+
     }
 }
