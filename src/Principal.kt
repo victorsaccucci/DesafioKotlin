@@ -31,4 +31,6 @@ fun main() {
 
     println(gerente)
 
+    println(gerente.buscarCursoAluno(12))
+
 }

@@ -20,7 +20,14 @@ class Curso(
         return false
     }
 
-    fun excluirAluno(aluno: Aluno){
+    fun excluirAluno(aluno: Aluno) {
         listaAlunos.remove(aluno)
+    }
+
+    fun adicionaProfessor(professor: Professor) {
+        when (professor) {
+            is ProfessorAdjunto -> professorAdjunto = professor
+            is ProfessorTitular -> professorTitular = professor
+        }
     }
 }
