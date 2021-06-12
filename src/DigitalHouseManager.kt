@@ -1,10 +1,18 @@
-import java.lang.NullPointerException
-
 class DigitalHouseManager {
     var listaDeAlunos: MutableList<Aluno> = mutableListOf()
     var listaDeProfessores: MutableList<Professor> = mutableListOf()
     var listaDeCursos: MutableList<Curso> = mutableListOf()
     var listaDeMatriculas: MutableList<Matricula> = mutableListOf()
+
+    override fun toString(): String {
+        val toString = """
+            Alunos = $listaDeAlunos
+            Professores = $listaDeProfessores
+            Cursos = $listaDeCursos
+            Matriculas = $listaDeMatriculas
+            """
+        return toString
+    }
 
     fun registrarCurso(nome: String, codigoDoCurso: Int, qtdMaxima: Int) {
         val curso = Curso(nome, codigoDoCurso, qtdMaxima)
@@ -75,8 +83,6 @@ class DigitalHouseManager {
         } else {
             println("Sem vaga para o curso.")
         }
-        val matricula = Matricula(aluno, curso)
-        listaDeMatriculas.add(matricula)
     }
 
     fun alocarProfessores(
@@ -104,6 +110,22 @@ class DigitalHouseManager {
 
         curso.adicionaProfessor(professorTitular)
         curso.adicionaProfessor(professorAdjunto)
+    }
+
+    fun buscarCursoAluno(codigo: Int): List<Curso> {
+
+        val listaDeMatricula = listaDeMatriculas.filter {
+            it.aluno.codigoDoAluno == codigo
+        }
+
+        var listaDeCursos = mutableListOf<Curso>()
+        listaDeMatricula.forEach {
+            listaDeCursos.add(it.curso)
+        }
+
+        return listaDeCursos
+
 
     }
+
 }
